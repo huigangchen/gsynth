@@ -2336,7 +2336,11 @@ synth.boot<-function(Y,
                 } else {
                     if (is.null(cl)) {
                         fake.co <- sample(id.co, Nco, replace = TRUE)
-                        boot.id <- c(sample(id.tr, Ntr, replace = TRUE), fake.co)
+                        if (length(id.tr)>1) {
+                            boot.id <- c(sample(id.tr, Ntr, replace = TRUE), fake.co)
+                        } else {
+                            boot.id <- c(id.tr, fake.co)
+                        }
                     } else {
                         cl.boot <- sample(cl.unique, length(cl.unique), replace = TRUE)
                         cl.boot.uni <- unique(cl.boot)
