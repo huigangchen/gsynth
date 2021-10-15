@@ -2277,6 +2277,8 @@ synth.boot<-function(Y,
                     X.boot <- NULL
                     if (p > 0) {
                         X.boot <- X[,boot.id,,drop = FALSE]
+                    } else {
+                        X.boot <- X
                     }
                     D.boot <- D[,boot.id]
                     I.boot <- I[,boot.id]
@@ -2356,6 +2358,8 @@ synth.boot<-function(Y,
                 X.boot <- NULL
                 if (p > 0) {
                     X.boot <- X[,boot.id,,drop = FALSE]
+                } else {
+                    X.boot <- X
                 }
                 D.boot <- D[,boot.id]
                 I.boot <- I[,boot.id]
