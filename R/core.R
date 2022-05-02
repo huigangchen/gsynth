@@ -1595,7 +1595,8 @@ synth.mc<-function(Y, # Outcome variable, (T*N) matrix
         cat("Cross-validating ...","\r")
 
         ## tot.id <- which(c(II)==1) ## observed control data
-        cv.count <- ceiling((sum(II)*sum(II))/sum(I))
+        # cv.count <- ceiling((sum(II)*sum(II))/sum(I))
+        cv.count <- ifelse(sum(II) >= sum(I) - 1, 2*sum(II) - sum(I), 2*sum(II) - sum(I) + 1)
 
         Y.lambda <- YY - Y0
         Y.lambda[which(II == 0)] <- 0
