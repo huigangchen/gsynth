@@ -2362,6 +2362,9 @@ synth.boot<-function(Y,
                 } else {
                     X.boot <- X
                 }
+                if (sd(X.boot)==0) {
+                    X.boot <- array(0, dim=c(dim(X.boot)[1], dim(X.boot)[2], 0))
+                }
                 D.boot <- D[,boot.id]
                 I.boot <- I[,boot.id]
                 W.boot <- NULL
